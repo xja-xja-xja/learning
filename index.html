@@ -1528,6 +1528,10 @@ addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 /* ================= 音乐 ================= */
 const song=$('#song');
 song.volume=.6;
+song.addEventListener('error',()=>{
+  $('#musicBtn').style.display='none';
+  $('#musicTip').style.display='none';
+},{once:true});
 $('#musicBtn').onclick=()=>{
   if(song.paused){
     song.play().then(()=>{
